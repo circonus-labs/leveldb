@@ -160,6 +160,10 @@ leveldb_t* leveldb_open(
   return result;
 }
 
+int leveldb_lockfile_fd(leveldb_t* db) {
+  return db->rep->getLockfileFD();
+}
+
 void leveldb_close(leveldb_t* db) {
   delete db->rep;
   delete db;

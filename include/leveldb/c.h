@@ -74,6 +74,8 @@ extern leveldb_t* leveldb_open(
     const char* name,
     char** errptr);
 
+extern int leveldb_lockfile_fd(leveldb_t* db);
+
 extern void leveldb_close(leveldb_t* db);
 
 extern void leveldb_put(

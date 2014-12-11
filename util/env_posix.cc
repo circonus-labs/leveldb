@@ -522,6 +522,7 @@ class PosixFileLock : public FileLock {
  public:
   int fd_;
   std::string name_;
+  int getFD() { return fd_; }
 };
 
 // Set of locked files.  We keep a separate set instead of just

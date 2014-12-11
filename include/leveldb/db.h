@@ -66,6 +66,9 @@ class DB {
   DB() { }
   virtual ~DB();
 
+  // Get the file descriptor behind the lockfile
+  virtual int getLockfileFD();
+
   // Set the database entry for "key" to "value".  Returns OK on success,
   // and a non-OK status on error.
   // Note: consider setting options.sync = true.

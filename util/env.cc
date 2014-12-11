@@ -24,6 +24,10 @@ Logger::~Logger() {
 FileLock::~FileLock() {
 }
 
+int FileLock::getFD() {
+  return -1;
+}
+
 void Log(Logger* info_log, const char* format, ...) {
   if (info_log != NULL) {
     va_list ap;

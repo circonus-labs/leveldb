@@ -301,6 +301,7 @@ class FileLock {
  public:
   FileLock() { }
   virtual ~FileLock();
+  virtual int getFD();
  private:
   // No copying allowed
   FileLock(const FileLock&);

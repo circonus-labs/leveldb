@@ -241,6 +241,13 @@ DBImpl::~DBImpl() {
   }
 }
 
+int DBImpl::getLockfileFD() {
+  if (db_lock_ != NULL) {
+    return db_lock_->getFD();
+  }
+  return -1;
+}
+
 Status DBImpl::NewDB() {
   VersionEdit new_db;
   new_db.SetComparatorName(user_comparator()->Name());
@@ -2036,6 +2043,10 @@ Status DB::Delete(const WriteOptions& opt, const Slice& key) {
 }
 
 DB::~DB() { }
+
+int DB::getLockfileFD() {
+  return -1;
+}
 
 Status DB::Open(const Options& options, const std::string& dbname,
                 DB** dbptr) {
